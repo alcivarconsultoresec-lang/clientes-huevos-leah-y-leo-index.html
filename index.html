@@ -1,17 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huevos Leah y Leo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#12372a">
+  <meta name="description" content="Catálogo PWA de Huevos Leah y Leo: huevos, quesos, cecinas, embutidos y pedidos rápidos por WhatsApp.">
+  <link rel="manifest" href="assets/manifest.json">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312372a'/%3E%3Ccircle cx='24' cy='31' r='11' fill='%23f8f3df'/%3E%3Ccircle cx='41' cy='31' r='11' fill='%23f7d560'/%3E%3C/svg%3E">
+  <title>Huevos Leah y Leo | BarrioOS</title>
 </head>
 <body>
+  <header class="hero" id="inicio">
+    <nav class="topbar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Huevos Leah y Leo, inicio">
+        <span class="brand__icon" aria-hidden="true">🥚</span>
+        <span><strong>Huevos Leah y Leo</strong><small>BarrioOS</small></span>
+      </a>
+      <a class="admin-link" href="admin.html">Admin</a>
+    </nav>
 
-<h1>Huevos Leah y Leo</h1>
+    <section class="hero__content">
+      <p class="eyebrow">Distribuidora de barrio · WhatsApp +56 9 2175 0687</p>
+      <h1>Huevos, quesos y congelados para pedir en 3 clics.</h1>
+      <p>Catálogo local, carrito rápido y pedido estructurado directo a WhatsApp. También funciona sin internet después de la primera carga.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn--ghost" href="https://wa.me/56921750687" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </section>
+  </header>
 
-<p>
-Proyecto en construcción.
-</p>
+  <main>
+    <section class="quick-info" aria-label="Información rápida">
+      <article><span>🛒</span><strong>Pedido mínimo simple</strong><small>Agrega productos y confirma por WhatsApp.</small></article>
+      <article><span>📍</span><strong>Retiro o entrega</strong><small>Indica dirección y referencia al enviar.</small></article>
+      <article><span>📲</span><strong>Instalable</strong><small>Guarda la app en Android desde el navegador.</small></article>
+    </section>
 
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <p class="eyebrow">Catálogo</p>
+        <h2>Productos disponibles</h2>
+        <p>Precios referenciales del local. El total se confirma por WhatsApp.</p>
+      </div>
+
+      <div class="toolbar" role="search">
+        <label class="search-box">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Ej: huevo, gouda, vienesa..." autocomplete="off">
+        </label>
+        <label class="select-box">
+          <span>Categoría</span>
+          <select id="categoryFilter"></select>
+        </label>
+      </div>
+
+      <div id="offersStrip" class="offers-strip" aria-live="polite"></div>
+      <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>No encontramos productos con ese filtro.</p>
+    </section>
+
+    <section class="location-section" id="ubicacion">
+      <div>
+        <p class="eyebrow">Ubicación</p>
+        <h2>Encuéntranos y coordina tu compra</h2>
+        <p>La dirección exacta se puede ajustar en el código cuando el negocio la confirme. Mientras tanto, el botón abre Google Maps para buscar el local.</p>
+        <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query=Huevos%20Leah%20y%20Leo" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+      <div class="map-card" title="Mapa Huevos Leah y Leo">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Huevos%20Leah%20y%20Leo&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-panel" aria-label="Carrito de pedido">
+    <div class="cart-panel__header">
+      <div>
+        <p class="eyebrow">Carrito</p>
+        <h2>Tu pedido</h2>
+      </div>
+      <button class="icon-btn" id="clearCartBtn" type="button" title="Vaciar carrito">🗑️</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+    <p id="cartEmpty" class="cart-empty">Tu carrito está vacío. Agrega productos del catálogo.</p>
+
+    <form id="checkoutForm" class="checkout-form">
+      <label>Nombre
+        <input id="customerName" name="customerName" type="text" placeholder="Tu nombre" autocomplete="name">
+      </label>
+      <label>Dirección
+        <input id="customerAddress" name="customerAddress" type="text" placeholder="Calle, número, sector" autocomplete="street-address">
+      </label>
+      <label>Referencia
+        <textarea id="customerReference" name="customerReference" rows="2" placeholder="Casa, portón, horario, indicaciones..."></textarea>
+      </label>
+      <div class="cart-total"><span>Total estimado</span><strong id="cartTotal">$0</strong></div>
+      <button class="btn btn--whatsapp" type="submit">Enviar pedido por WhatsApp</button>
+    </form>
+  </aside>
+
+  <button class="floating-cart" id="floatingCartBtn" type="button" aria-label="Ir al carrito">
+    🛒 <span id="floatingCartCount">0</span>
+  </button>
+
+  <footer class="footer">
+    <strong>Huevos Leah y Leo</strong>
+    <span>Catálogo PWA local creado para BarrioOS.</span>
+  </footer>
+
+  <script src="assets/carrito.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>

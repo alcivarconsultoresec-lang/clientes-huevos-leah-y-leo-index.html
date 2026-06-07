@@ -1,0 +1,26 @@
+{
+  "name": "Huevos Leah y Leo - BarrioOS",
+  "short_name": "Leah y Leo",
+  "description": "Catálogo local y pedidos por WhatsApp para Huevos Leah y Leo.",
+  "start_url": "../index.html",
+  "scope": "../",
+  "display": "standalone",
+  "background_color": "#f8f3df",
+  "theme_color": "#12372a",
+  "orientation": "portrait-primary",
+  "lang": "es-CL",
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
