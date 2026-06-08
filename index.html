@@ -7,7 +7,7 @@
   <meta name="description" content="Catálogo PWA de Huevos Leah y Leo: huevos, quesos, cecinas, embutidos y pedidos rápidos por WhatsApp.">
   <link rel="manifest" href="assets/manifest.json">
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312372a'/%3E%3Ccircle cx='24' cy='31' r='11' fill='%23f8f3df'/%3E%3Ccircle cx='41' cy='31' r='11' fill='%23f7d560'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312372a'/%3E%3Ccircle cx='24' cy='31' r='8' fill='%23f4d4a8'/%3E%3Ccircle cx='40' cy='31' r='8' fill='%23f4d4a8'/%3E%3Cellipse cx='32' cy='40' rx='16' ry='12' fill='%23f4d4a8'/%3E%3C/svg%3E">
   <title>Huevos Leah y Leo | BarrioOS</title>
 </head>
 <body>
@@ -112,5 +112,13 @@
 
   <script src="assets/carrito.js"></script>
   <script src="assets/app.js"></script>
+  <script>
+    // Registrar service worker para funcionalidad offline
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(err => {
+        console.log('Service Worker registration failed:', err);
+      });
+    }
+  </script>
 </body>
 </html>
