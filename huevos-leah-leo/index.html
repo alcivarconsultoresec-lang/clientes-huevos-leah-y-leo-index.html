@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huevos Leah y Leo - Frescura que llega a tu mesa</title>
+    <meta name="description" content="Venta de huevos frescos y productos de almacén en tu barrio. Pedidos rápidos por WhatsApp. Despacho local.">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E6A13C">
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Huevos <span>Leah y Leo</span></h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="cart-btn" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Huevos frescos directo a tu hogar</h2>
+                <p>Calidad familiar, confianza de barrio. Haz tu pedido en menos de 3 minutos.</p>
+                <a href="#productos" class="btn btn-primary">Ver Catálogo</a>
+            </div>
+            <div class="hero-image">
+                <div class="egg-illustration">
+                    <div class="egg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="features">
+        <div class="container features-grid">
+            <div class="feature-card">
+                <i class="fas fa-truck"></i>
+                <h3>Despacho Local</h3>
+                <p>Llegamos rápido a tu puerta</p>
+            </div>
+            <div class="feature-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>Pedido Fácil</h3>
+                <p>Compra directa por WhatsApp</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Confianza</h3>
+                <p>Calidad garantizada siempre</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos" class="products">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            
+            <!-- Filtros -->
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="huevos">Huevos</button>
+                <button class="filter-btn" data-category="quesos">Quesos</button>
+                <button class="filter-btn" data-category="cecinas">Cecinas</button>
+                <button class="filter-btn" data-category="ofertas">Ofertas</button>
+            </div>
+
+            <!-- Buscador -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar producto..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se cargan dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ofertas Destacadas -->
+    <section id="ofertas" class="offers">
+        <div class="container">
+            <h2 class="section-title">Ofertas Especiales</h2>
+            <div class="offers-grid" id="offersGrid">
+                <!-- Ofertas cargadas dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Información -->
+    <section class="info-section">
+        <div class="container info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-clock"></i> Horarios</h3>
+                <p>Lunes a Sábado: 9:00 - 20:00</p>
+                <p>Domingo: 10:00 - 14:00</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-map-marker-alt"></i> Cobertura</h3>
+                <p>Despachos locales en el sector</p>
+                <p>Consulta por tu dirección</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-wallet"></i> Pagos</h3>
+                <p>Efectivo, Transferencia</p>
+                <p>Al momento de la entrega</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container contact-content">
+            <h2>¿Listo para hacer tu pedido?</h2>
+            <p>Escríbenos directamente por WhatsApp</p>
+            <a href="#" class="btn btn-whatsapp" id="mainWhatsapp">
+                <i class="fab fa-whatsapp"></i> Contactar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>Huevos Leah y Leo</h3>
+                <p>Tu almacén de confianza en el barrio</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Huevos Leah y Leo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Carrito Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tu Carrito</h3>
+                <button class="close-btn" id="closeCart">&times;</button>
+            </div>
+            <div class="modal-body" id="cartItems">
+                <!-- Items del carrito -->
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <span>Total estimado:</span>
+                    <strong id="cartTotal">$0</strong>
+                </div>
+                <button class="btn btn-whatsapp btn-full" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>
