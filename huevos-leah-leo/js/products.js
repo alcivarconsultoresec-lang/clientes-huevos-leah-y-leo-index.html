@@ -1,7 +1,7 @@
 // Configuración de productos - FÁCIL DE EDITAR
 // Para agregar nuevos productos, simplemente copia un objeto y modifica los valores
 
-const products = [
+const productsData = [
     // HUEVOS
     {
         id: 1,
@@ -129,6 +129,9 @@ const products = [
         originalPrice: 18000
     }
 ];
+
+// Usar productsData como products para compatibilidad
+const products = productsData;
 
 // Configuración de la tienda - FÁCIL DE EDITAR
 const storeConfig = {
