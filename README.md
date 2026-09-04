@@ -1,27 +1,34 @@
-# Huevos Leah y Leo · BarrioOS PWA
+# Tap-Board · Live Sports Capture
 
-Progressive Web App liviana para el catálogo y pedidos por WhatsApp de **Huevos Leah y Leo**.
+Consola táctil para registrar eventos de baloncesto en tiempo real. Incluye botones grandes para ambos equipos, marcador de sesión, reproductor de capacitación, feed de última acción y confirmación por voz mediante la Web Speech API (`en-US`).
 
-## Qué incluye
+## Requisitos
 
-- Catálogo offline-first cargado desde `assets/productos.json`.
-- Carrito con persistencia en `localStorage`.
-- Checkout por WhatsApp al número oficial `+56 9 2175 0687`.
-- Panel local de administración en `admin.html` para crear, editar, eliminar y marcar ofertas.
-- Manifest y service worker para instalación como PWA en Android.
-- Archivos estáticos compatibles con GitHub Pages, sin frameworks ni backend.
+- Node.js 20 o superior.
+- Un navegador moderno con Web Speech API para la locución.
 
 ## Desarrollo local
 
 ```bash
-python3 -m http.server 4173
+npm install
+npm run dev
 ```
 
-Luego abre:
+## Despliegue en Vercel CLI
 
-- Tienda: <http://127.0.0.1:4173/>
-- Admin: <http://127.0.0.1:4173/admin.html>
+Ejecuta estos comandos desde la carpeta del proyecto:
 
-## Datos locales
+```bash
+# 1. Inicializar el repositorio Git local (si todavía no existe).
+git init
+git add .
+git commit -m "feat: create Tap-Board sports capture console"
 
-El catálogo inicial vive en `assets/productos.json`. Al abrir la app, se copia a `localStorage` para permitir cambios desde el panel admin sin backend. Para volver a la versión base, usa el botón **Restaurar catálogo** en el admin.
+# 2. Autenticarse en Vercel.
+npx vercel login
+
+# 3. Desplegar a producción. Vercel devolverá una URL .vercel.app.
+npx vercel --prod
+```
+
+La regla SPA de `vercel.json` hace que cualquier ruta sea atendida por `index.html`.
